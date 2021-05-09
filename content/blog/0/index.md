@@ -10,7 +10,11 @@ I am a geek. I love life, computers and everything in between!<br>
 I have been coding since my school days and soon realized that man this thing is so cool!
 I am an A.I. enthusiast and have made various projects related to Data Analysis, Machine Learning, Deep Learning
 and Web Development. Also I have completed a Data Analytics Internship at Pikkal & Co, Singapore and a 
-Deep Learning Internship at Mavoix Solutions Pvt Ltd, Bangalore.
+Deep Learning Internship at Mavoix Solutions Pvt Ltd, Bangalore.<br>
+Wanna know a less known fact, I'm a huge hardcore video gamer! If I'm not coding, I will probably be killing some time 
+on my laptop or my Playstation console ;)
+ 
+
 
 Wanna know more about me and my work? Below are some links, do check out;)<br>
 [LinkedIn](https://www.linkedin.com/in/anand-kumar-83896717a/) | [github](https://github.com/anandxkumar)
@@ -21,5 +25,5 @@ Also one huge shout out to the guys at <b>GatsbyJS</b> for providing such an ama
 The biggest advantage of this template is that every blog is written in <b>Markdown</b>. So its gives alot of flexibility and functionality 
 to the user to edit their texts. Plus their templates codebase is easy to understand so anyone can just clone and get started!
 
-Anyways I guess this should wrap up this blog. See you in the next one where will be starting my GSoC journey and discuss my project ;)<br>
+Anyways I guess this should wrap up this blog. See you in the next one where I will be starting my GSoC journey and discuss my project ;)<br>
 Till then take care and ba-bye :)
