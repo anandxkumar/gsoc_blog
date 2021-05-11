@@ -5,7 +5,7 @@ module.exports = {
       name: `Anand Kumar`,
       summary: `. `,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `My Blogging Website to track the progress of my GSoC project with RADIS.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
       twitter: `kylemathews`,
