@@ -1,7 +1,7 @@
 {
-  "name": "Anand Kumar - GSoC Blog",
+  "name": "gatsby-starter-blog",
   "private": true,
-  "description": "My Blogging Website to track the progress of my GSoC project with RADIS.",
+  "description": "A starter for a blog powered by Gatsby and Markdown",
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "bugs": {
