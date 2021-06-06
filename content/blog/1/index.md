@@ -32,11 +32,11 @@ which will tell us which optimization technique to select based on the computed 
 <b>calc_spectrum()</b>. An `optimization = "auto"` will be added that will choose the best method based on the parameters provided.
 
 ## Community Bonding Period
-The first phase of GSoC is the <b>Community Bonding Period</b> which is a 3 weeks long period. It's main aim is allow the student to get familiar with the community and the codebase. It serves as a warm-up period before the coding period. So I believed inorder to get myself ready for the coding period, I shall focus on solving some related issues to make me more familiar with the codebase.<br>
+The first phase of GSoC is the <b>Community Bonding Period</b> which is a 3 weeks long period. It's main aim is allow the student to get familiar with the community and the codebase. It serves as a warm-up period before the coding period. The first thing I did was that I went though the original Radis [paper](doi.org/10.1016/j.jqsrt.2018.09.027) and also the DLM implementation [paper](doi:10.1016/j.jqsrt.2020.107476) because our project objective is based on these 2 implementations. It helped me understand the main purpose of RADIS, its architecture and the science behind different steps of both equilibrium and non-equilibrium spectrum, though I have to accept these papers are way too technical for me :p (Complex Spectroscopy related formulas).<br> I believed inorder to get myself ready for the coding period, I shall focus on solving some related issues to make me more familiar with the codebase.<br>
 
 In order to compute any spectrum we need to determine several parameters like - minimum-maximum wavenumber, molecule, Temperature of gas, mole fraction, wstep, etc.<br>
 `wstep` determines the wavenumber grid’s resolution. Smaller the value, higher the resolution and vice-versa. By default radis uses `wstep=0.01`. You can manually set the wstep value in <b>calc_spectrum()</b> and SpectrumFactory. To get more accurate result you can further reduce the value, and to increase the performance you can increase the value.
 
 Based on wstep, it will determine the number of gridpoints per linewidth. To make sure that there are enough gridpoints, Radis will raise an Accuracy Warning. If number of gridpoints are less than `GRIDPOINTS_PER_LINEWIDTH_WARN_THRESHOLD` and raises an Accuracy Error if number of gridpoints are less than `GRIDPOINTS_PER_LINEWIDTH_ERROR_THRESHOLD`.
 
-So we decide that `wstep = 
+So inorder to select the optimum value of `wstep`
