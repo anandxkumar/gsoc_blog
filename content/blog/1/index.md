@@ -45,7 +45,7 @@ In short, the Community Bonding Period has been great and I have learned alot ab
 I'm very excited for the upcoming months. I know that this summer is going to be a life long experience and I'm really looking forward to do amazing things for the community and want to thank Google, OpenAstronomy, Radis and my mentors [Erwan Pannier](https://github.com/erwanp), [Dirk van den Bekerom](https://github.com/dcmvdbekerom) and [Pankaj Mishra](https://github.com/pkj-m) for this opportunity.
 I'm ready for this amazing adventure.
 <p align="center">
-<b>LET'S DO THIS</b><br>
+<b>LETS DO THIS</b><br>
 <img src="Start.gif"><br>
 ps: Am a huge Spiderman Fan :p
 </p>
