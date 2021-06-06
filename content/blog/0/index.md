@@ -1,16 +1,17 @@
 ---
 title: print(" Hello World!!! ")
 date: "2021-05-10T22:40:32.169Z"
-description: Hey Everyone! Glad to see you here. Wanna know more about me? Click the link above ;)
+description: "Hey Everyone! Glad to see you here. This is going to be a series of blogs where I cover my Summer Journey with <b>Radis</b> as part of Google Summer of Code. Wanna know more about me? Click the link above ;)"
 ---
 
-Hey everyone <b>Anand Kumar</b> this side. Welcome to my first blog where I will be introducing myself. I'm a Junior from National
+Hey everyone <b>Anand Kumar</b> this side. This is going to be a series of blogs where I cover my Summer Journey <b>Radis</b> as part of Google Summer of Code. Welcome to my first blog where I will be introducing myself. I'm a Junior from National
 Institute of Technology, Hamirpur, India currently pursuing my BTech in Computer Science and Engineering.<br>
 I am a geek. I love life, computers and everything in between!<br>
 I have been coding since my school days and soon realized that man this thing is so cool!
 I am an A.I. enthusiast and have made various projects related to Data Analysis, Machine Learning, Deep Learning
 and Web Development. Also I have completed a Data Analytics Internship at Pikkal & Co, Singapore and a 
 Deep Learning Internship at Mavoix Solutions Pvt Ltd, Bangalore.<br>
+Currently I'm a Student Developer at OpenAstronomy organization as a part of Google Summer of Code 2021. <br>
 Wanna know a less known fact, I'm a huge hardcore video gamer! If I'm not coding, I will probably be killing some time 
 on my laptop or my Playstation console ;)
  
