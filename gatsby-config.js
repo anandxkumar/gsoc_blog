@@ -6,9 +6,9 @@ module.exports = {
       summary: `. `,
     },
     description: `My Blogging Website to track the progress of my GSoC project with RADIS.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    siteUrl: `https://anandkumar-blog.netlify.app/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `None`,
     },
   },
   plugins: [
