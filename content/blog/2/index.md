@@ -9,17 +9,17 @@ Hey! Missed me? I'm back with another blog, the first related to the Coding Peri
 
 The first thing I did in the coding period, was analyse the problem and get a feasible approach to resolve it.<br>
 
-**Problem:** Find the complexity of the Legacy and LDM method<br>
+**Problem:** Find the complexity of the Legacy and LDM method.<br>
 **Solution:** Run some benchmarks and find the bottleneck step.<br>
 
 First I chose the **Legacy** method because if its simpler architecture. I ran some benchmarks varying the `spectral range` of `OH` and `CO2` molecule to get similar number of lines. I kept parameters like `pressure`, `temperature`, `broadening_max_width`, `wstep`, etc constant to see the dependence of Legacy method on **Spectral range**. <br>
 
-In order to get similar number of lines, I created a function which will take the **Spectrum Factory** `dataframe` and select the target number of lines. But the issue with Pandas dataframe is that when modify the dataframe there are chances that the metadata will get lost and we will no longer be able to do Spectrum calculation. To avoid this we have to drop the right number of lines with `inplace=True`. So we will need to fix the number of lines and then we can proceed ahead with the benchmarking. Every parameter is the same except the Spectral Range.  Full code [here](https://gist.github.com/anandxkumar/cbe12f47170e1d71a82f4b246bd01dcc):<br>
+In order to get similar number of lines, I created a function which will take the **Spectrum Factory** `dataframe` and select the target number of lines. But the issue with Pandas dataframe is that when modify the dataframe there are chances that the metadata will get lost and we will no longer be able to do Spectrum calculation. To avoid this we have to drop the right number of lines with `inplace=True`. So we will need to fix the number of lines and then we can proceed ahead with the benchmarking. Every parameter is the same except the Spectral Range.  Full code [here](https://gist.github.com/anandxkumar/cbe12f47170e1d71a82f4b246bd01dcc).<br>
 
 Earlier we assumed that the complexity of Legacy method is: <br>
  **`Voigt Broadening = Broadening_max_width * spectral_range/math.pow(wstep,2) * N`** <br>
 
-Thus I was expecting to have different calculation time for both benchmarks. But to my surprise the computational time was almost equivalent! I re-ran each benchmarks 100 times just to be sure and more precise about it. Following were the observations:<br>
+Thus I was expecting to have different calculation time for both benchmarks. But to my surprise the computational times were almost equivalent! I re-ran each benchmarks **100 times** just to be sure and more precise about it. Following were the observations:<br>
 
 - Number of lines - <b>{'OH': 28143, 'CO': 26778}</b>
 - Total Calculation time(Avg) -  <b>{'OH': 4.4087, 'CO': 3.8404000000000003}</b>
@@ -29,8 +29,8 @@ Thus I was expecting to have different calculation time for both benchmarks. But
 
 There are some inference we can make from the above observation:<br>
 
-**A)** The bottleneck step(Voigt Broadening) loosely depend on `Spectral Range`.<br>
-**B)** The complexity of Voigt Broadening needs to be updated because there is a difference of order of **~10** in the Legacy Scaled value of OH and CO2.<br>
+**A)** The bottleneck step(Voigt Broadening) loosely depends on `Spectral Range`.<br>
+**B)** The complexity of Voigt Broadening needs to be modified because there is a difference of order of **~10** in the Legacy Scaled value of OH and CO2.<br>
 
 <p align="center">
 <img src="Blog2.png"><br>
@@ -117,6 +117,7 @@ The complexity of each part comes out: <br>
     O(part_4) = o1 
 ```
 </b>
+
 Running several benchmark showed us that **part_3** takes the most time out of all steps. So clearly we can see that the complexity of Legacy method is not dependent on
 Spectral Range but rather `Number of Calculated Lines`,`broadening__max_width` and `wstep`. It may seem that the complexity of Legacy method is:<br>
 
