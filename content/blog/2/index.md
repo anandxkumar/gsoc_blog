@@ -126,8 +126,8 @@ Spectral Range but rather `Number of Calculated Lines`,`broadening__max_width` a
 But inorder to prove this we need more benchmarks and evidence to verify this and it may involve normalization of all steps in lineshape calculation!<br> 
 
 So the goal for the next 2 weeks is clear:<br> 
-i) Refactor the entire codebase with Profiler.<br>
-ii) Find the complexity of Legacy Method with the help of more benchmark and analysis.<br>
-iii) Do the same for LDM!<br>
+<b>i)</b> Refactor the entire codebase with Profiler.<br>
+<b>ii)</b> Find the complexity of **Legacy Method** with the help of more benchmark and analysis.<br>
+<b>iii)</b> Do the same for **LDM Method**!<br>
 
 Ok I guess time's up! See you after 2 weeks :)
