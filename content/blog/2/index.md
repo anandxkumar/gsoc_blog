@@ -32,8 +32,8 @@ There are some inference we can make from the above observation:<br>
 **A)** The bottleneck step(Voigt Broadening) loosely depends on `Spectral Range`.<br>
 **B)** The complexity of Voigt Broadening needs to be modified because there is a difference of order of **~10** in the Legacy Scaled value of OH and CO2.<br>
 
+<img src="Blog2.png" alt="complexity.jpg" width="400"/><br>
 <p align="center">
-<img src="Blog2.png"><br>
 <b>Credits - Me :p</b><br>
 </p>
 
