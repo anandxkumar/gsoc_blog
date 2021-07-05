@@ -1,7 +1,7 @@
 ---
 title: "Chapter 2: Survey Corps"
 date: "2021-07-05T23:40:32.169Z"
-description: So its been around 4 weeks of coding period, a lot of progress so far!
+description: So its been around 4 weeks into the coding period, a lot of insights and progress so far!
 ---
 So its been around 4 weeks into the coding period, a lot of insights and progress so far!
 
