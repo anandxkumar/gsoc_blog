@@ -53,7 +53,7 @@ Also we can access these steps and the time taken by them using `Spectrum.get_co
 
 ## Legacy Method Complexity
 
-Several Spectrums were benchmarked against various parameters to see it's correlation and derive its complexity. We used Profiler class with [init_database()](https://radis.readthedocs.io/en/latest/source/radis.lbl.loader.html#radis.lbl.loader.DatabankLoader.init_database) which stores all parameters of Spectrum along the Profiler in a `csv` generated file; all spectrum info got added into the csv file  which could be used to do create visualizations to analyze the data. We used Xexplorer library and Tableau(a visual analytics platform) to create visualizations. A [github repository](https://github.com/anandxkumar/Benchmark_Visualization_GSoC_2021) was created to store the Visualization along the CSV data file of each benchmark.
+Several Spectrums were benchmarked against various parameters to see it's correlation and derive its complexity. We used Profiler class with [init_database()](https://radis.readthedocs.io/en/latest/source/radis.lbl.loader.html#radis.lbl.loader.DatabankLoader.init_database) which stores all parameters of Spectrum along the Profiler in a `csv` generated file; all spectrum info got added into the csv file  which could be used to do create visualizations to analyze the data. We used `Xexplorer` library and `Tableau`(a visual analytics platform) to create visualizations. A [github repository](https://github.com/anandxkumar/Benchmark_Visualization_GSoC_2021) was created to store the Visualization along the CSV data file of each benchmark.
 
 Following are the inference of the benchmarks for Legacy Method:
 
@@ -71,64 +71,25 @@ So complexity of Legacy method can be derived as: <br>
 
 ## LDM Method Complexity
 
-Similar technique was used to benchmark LDM method. Now LDM uses 2 types of broadening method that are `voigt` and `fft`. `voigt` uses truncation for calculating spectrum  in wavenmber space where as `fft` uses 
-## Digging in whiting_jit
+Similar technique was used to benchmark LDM method. Now LDM uses 2 types of broadening method that are `voigt` and `fft`. `voigt` uses truncation for calculating spectrum  in wavenmber space where as `fft` calculates spectrum on entire spectral range in fourier space. So benchmarks were done on both methods to compare their performance against various parameters.
 
-Based on several benchmarks, it is estimated that around **70-80%** time is spent on calculating the broadening. The broadening part has the following hierarchy:<br>
+Spectrum were benchmarked against parameters like Spectral Range, Wstep, Spectral Points, Number of Lines and Broadening Max Width. Following are the inferences.
+
+For `fft`:<br>
 <b>
-```
-_calc_broadening()
--> _calc_lineshape()
-   -> _voigt_broadening()
-      -> _voigt_lineshape()
-         -> whiting_jit()
-```
+• Calculation Time ∝ Spectral Points<br>
+• Calculation Time ∝ Number of Lines<br>
 </b>
 
-On close inspection we observed that **80-90%** time is spent on `whiting_jit` process. Going further down in `whiting_jit`, **60-80%** time is spent on **lineshape calculation.** Below is the formula:<br>
-```
-lineshape = (
-    (1 - wl_wv) * exp(-2.772 * w_wv_2)
-    + wl_wv * 1 / (1 + 4 * w_wv_2)
-    # ... 2nd order correction
-    + 0.016 * (1 - wl_wv) * wl_wv * (exp(-0.4 * w_wv_225) - 10 / (10 + w_wv_225))
-)
-```
-
-The whole process can be divided into 4 parts:<br>
-```
-    part_1 =   (1 - wl_wv) * exp(-2.772 * w_wv_2)
-
-    part_2 =    wl_wv * 1 / (1 + 4 * w_wv_2)
-
-    # ... 2nd order correction
-    part_3 =  0.016 * (1 - wl_wv) * wl_wv * exp(-0.4 * w_wv_225) 
-
-    part_4 =  - 10 / (10 + w_wv_225)
-```
-
-The complexity of each part comes out: <br>
+For `voigt`:<br>
 <b>
-```
-    o1 = broadening__max_width * n_lines / wstep
-
-    O(part_1) = n_lines * o1
-    O(part_2) = n_lines * 4 * o1
-    O(part_3) = (n_lines)**2 * o1
-    O(part_4) = o1 
-```
+• Calculation Time ∝ Spectral Points<br>
+• Calculation Time ∝ Number of Lines<br>
+• Calculation Time ∝ Broadening Max Width<br>
 </b>
 
-Running several benchmark showed us that **part_3** takes the most time out of all steps. So clearly we can see that the complexity of Legacy method is not dependent on
-Spectral Range but rather `Number of Calculated Lines`,`broadening__max_width` and `wstep`. It may seem that the complexity of Legacy method is:<br>
+For LDM we are expecting the following complexity:<br>
+ **`t_LDM_fft ~ c2*N_lines + c3*(N_G*N_L + 1)*N_v*log(N_v)`**<br>
+ **`t_LDM_voigt ~ c2*N_lines + c3'*(N_G*N_L + 1)*N_truncation*log(N_truncation)`**<br>
 
-<p align="center"><b> n_lines^2 * broadening__max_width * n_lines / wstep</b></p> <br>
-
-But inorder to prove this we need more benchmarks and evidence to verify this and it may involve normalization of all steps in lineshape calculation!<br> 
-
-So the goal for the next 2 weeks is clear:<br> 
-<b>i)</b> Refactor the entire codebase with Profiler.<br>
-<b>ii)</b> Find the complexity of **Legacy Method** with the help of more benchmark and analysis.<br>
-<b>iii)</b> Do the same for **LDM Method**!<br>
-
-Ok I guess time's up! See you after 2 weeks :)
+ So the goal for the next 2 weeks will be to get the complexity of both `voigt` and `fft` method and see places for improving both methods and quite possibily create a `Hybrid` method taking the best of both worlds. 
