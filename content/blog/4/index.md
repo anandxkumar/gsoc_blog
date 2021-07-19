@@ -24,19 +24,17 @@ but rather t_LDM_voigt ~ c2*N_lines + c3*(N_G*N_L + 1)*N_v*log(N_v)
 ```
 ## A New Discovery
 
+On generating spectrum for millions of lines, one unique observation was seen. The bottleneck step was no longer taking the most time. Max time was spent upon an unknown process. Upon deep analysis it was found a part of code was using `sys.getsizeof()` to get the size of dataframe, and when the dataframe consisited of `object` type columns with millions of lines, most of the time was spent on this step only.
 
+<img src="ldm.png" alt="complexity.jpg" width="400"/><br>
 
+We replaced it with `memory_usage(deep=False)` with a different threshold which made computation almost **2x** faster.
 
+<img src="ba.png" alt="complexity.jpg" width="400"/><br>
 
 So complexity of Legacy method can be derived as: <br>
  **`complexity = constant * Number of lines * Broadening Max Width / Wstep`** <br>
 
-
-## LDM Method Complexity
-
-Similar technique was used to benchmark LDM method. Now LDM uses 2 types of broadening method that are `voigt` and `fft`. `voigt` uses truncation for calculating spectrum  in wavenmber space where as `fft` calculates spectrum on entire spectral range in fourier space. So benchmarks were done on both methods to compare their performance against various parameters.
-
-Spectrum were benchmarked against parameters like Spectral Range, Wstep, Spectral Points, Number of Lines and Broadening Max Width. Following are the inferences.
 
 For `fft`:<br>
 <b>
