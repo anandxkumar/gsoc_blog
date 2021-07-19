@@ -5,7 +5,7 @@ description: Phase 1 is over :) !
 ---
 Phase 1 is over :) ! We are half way through the journey. Great learning experience so far. Let's find out what I accomplished during the previous 2 weeks (since I believe you have been following me from the beginning ;)
 
-Getting straight to point, most of the time was spent on fixing bugs of the Profiler class and other Pull requests regarding documentation and gallery example. A new gallery example was added to demonstrate the working of `SpecDatabase` and `init_database` to help user to store all Spectrums in the form of a `.spec` file and all input parameters in a `csv` file under a folder. The same folder can be used to retrieve all Spectrums thus saving a lot of time and also no need to recompute all spectrums, so quite a handy feature. Radis has `plot_cond` function to plot a 2D heat map based on the parameters in csv file for all spectrums. Creates some good looking and informative plots :) <br>-> [Gallery Example](https://radis.readthedocs.io/en/latest/auto_examples/plot_SpecDatabase.html#sphx-glr-auto-examples-plot-specdatabase-py)<br>
+Getting straight to the point, most of the time was spent on fixing bugs of the Profiler class and other Pull requests regarding documentation and gallery example. A new gallery example was added to demonstrate the working of `SpecDatabase` and `init_database` to help user to store all Spectrums in the form of a `.spec` file and all input parameters in a `csv` file under a folder. The same folder can be used to retrieve all Spectrums thus saving a lot of time and also no need to recompute all spectrums, so quite a handy feature. Radis has `plot_cond` function to plot a 2D heat map based on the parameters in csv file for all spectrums. Creates some good looking and informative plots :) <br>-> [Gallery Example](https://radis.readthedocs.io/en/latest/auto_examples/plot_SpecDatabase.html#sphx-glr-auto-examples-plot-specdatabase-py)<br>
 
 Back to the analysis part; for LDM we expected:<br>
 
@@ -32,12 +32,9 @@ We replaced it with `memory_usage(deep=False)` with a different threshold which 
 
 <img src="ba.png" alt="complexity.jpg" width="400"/><br>
 
-So complexity of Legacy method can be derived as: <br>
- **`complexity = constant * Number of lines * Broadening Max Width / Wstep`** <br>
+So phase 1 is over,and phase 2 is going to begin which will mainly focus on optimizing the the existing LDM method with appropriate truncation and other possible areas!
 
+See you on the other side of the sea ;)
 
-For `fft`:<br>
-<b>
-• Calculation Time ∝ Spectral Points<br>
-• Calculation Time ∝ Number of Lines<br>
-</b>
+<img src="other.jpg" alt="complexity.jpg" width="400"/><br>
+
