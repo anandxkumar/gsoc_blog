@@ -4,9 +4,33 @@ date: "2021-08-23T14:24:32.169Z"
 description: So GSoC 2021 has officially ended and I can say without a doubt that what a journey it was. I recently concluded with my GSoC project, the final PR got merged and I'm quite satisfied with the outcome.
 
 ---
-<p align="center">
-<img src="Radis.png" alt="Radis.png" width="200" /><br>
-</p>
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+</style>
+
+<style>
+.backround {
+  background-image: url(Radis.png);
+  background-size: contains;
+  width: 300px;
+  height: 300px;
+  border: solid 2px red;
+  align: center;
+}
+</style>
+
+<div class="center">
+<img src = "Radis.png" class="background">
+
+</div><br>
+
+
+
 
 So `GSoC 2021` has officially ended and I can say without a doubt that what a journey it was. I recently concluded with my GSoC project, the final PR got merged and I'm quite satisfied with the outcome. 
 
