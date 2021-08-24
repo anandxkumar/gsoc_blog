@@ -32,7 +32,7 @@ description: So GSoC 2021 has officially ended and I can say without a doubt tha
 
 
 
-So `GSoC 2021` has officially ended and I can say without a doubt that what a journey it was. I recently concluded with my GSoC project, the final PR got merged and I'm quite satisfied with the outcome. 
+So `GSoC 2021` has officially ended and what a journey it was. I recently concluded with my GSoC project, the final PR got merged and I'm quite satisfied with the outcome. 
 
 Earlier we were able to find the time complexity of **LBL>Voigt**, **DIT>Voigt** and **DIT>FFT** (Formely known as LDM>FFT). On a small test replacing `np.convolve` with `scipy.signal.oaconvolve`, we were able to achieve 2 to 30 times performance boost. So we re-ran the benchmarks and were able to confirm this fact. 
 You can see the result at [Benchmark Visualization GSoC 2021](https://anandxkumar.github.io/Benchmark_Visualization_GSoC_2021/).
